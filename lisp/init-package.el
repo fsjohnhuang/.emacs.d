@@ -16,6 +16,8 @@
     material-theme
     ;; Mini Buffer
     smex
+    ;; Snippets
+    yasnippet-snippets
     ;; Python Major Mode
     elpy
     flycheck
@@ -40,6 +42,7 @@
 (require 'init-python-major-mode)
 (require 'init-window-numbering)
 (require 'init-smex)
+(require 'init-yasnippet)
 
 
 (provide 'init-package)
