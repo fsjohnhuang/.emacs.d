@@ -1,0 +1,12 @@
+#+startup: showall
+
+* Pythone IDE
+
+** Elpy
+官网：https://elpy.readthedocs.io/en/latest/index.html
+
+*** 安装配置
+#+begin_src .emacs.d/init.el
+(elpy-enable)
+#+end_src
+Elpy依赖一堆Python库，通过 ~M-x elpy-config RET~ 检查和安装依赖。
