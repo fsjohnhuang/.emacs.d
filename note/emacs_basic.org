@@ -67,3 +67,8 @@ search ring(查找环，实际上是队列)
 
 ** Ref
 https://www.cnblogs.com/robertzml/archive/2010/03/03/1675870.html
+
+* 目录操作
+进入文件管理模式， ~M-x dired~
+进入编辑模式（可修改文件目录名）， ~C-x C-q~
+保存编辑结果， ~C-x C-s~
