@@ -1,4 +1,5 @@
 ;;; -*- lexical-binding: t -*-
+(add-to-list 'load-path "~/.emacs.d/lisp-packages")
 
 ;; Elpy
 (when (require 'elpy nil t)
@@ -7,7 +8,7 @@
   (add-hook 'python-mode-hook 'elpy-mode)
   
   ;; py-autopep8
-  (require 'py-autopep8)
+  ;(require 'py-autopep8)
   ;(add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
   )
 
@@ -19,6 +20,6 @@
 
 ;; REPL
 (setq python-shell-interpreter "ipython"
-      python-shell-interpreter-args "-i")
+      python-shell-interpreter-args "-i --simple-prompt")
 
 (provide 'init-python-major-mode)
