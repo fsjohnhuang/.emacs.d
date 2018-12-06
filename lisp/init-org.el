@@ -1,8 +1,5 @@
 ;;;-*- lexical-binding: t-*-
 
-;; 时间戳采用英文
-(setq system-time-locale "C")
-
 
 ;; 定义任务状态
 (setq org-todo-keywords
@@ -20,6 +17,29 @@
 
 ;; 全局任务文件清单
 (setq org-agenda-files (list "~/todo/"))
+
+;; 自动换行
+(add-hook 'org-mode-hook (lambda ()
+                           (setq truncate-lines nil)
+                           (setq system-time-locale "C") ;; 时间戳采用英文
+                           (setq org-startup-indented t)
+                           (setq org-src-tab-acts-natively t)
+                           (setq org-src-fontify-natively t) ;; 内联代码语法高亮
+                           (local-set-key (kbd "C-c '") 'org-edit-src-code)
+                           (setq org-confirm-babel-evaluate nil)
+                           (setq org-export-babel-evaluate nil)
+                           ))
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((python . t)
+   (js . t)
+   (ditaa . t)
+   (plantuml . t)
+   (dot . t)
+   ))
+
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
 
 
 (provide 'init-org)

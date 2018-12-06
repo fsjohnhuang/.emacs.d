@@ -18,6 +18,8 @@
     smex
     ;; Snippets
     yasnippet-snippets
+    ;; Web
+    web-mode
     ;; Python Major Mode
     elpy
     flycheck
@@ -39,6 +41,7 @@
       (package-install pkg))))
 
 ;; 加载插件的配置
+(require 'init-web-mode)
 (require 'init-python-major-mode)
 (require 'init-window-numbering)
 (require 'init-smex)

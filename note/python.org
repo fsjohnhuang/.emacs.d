@@ -134,3 +134,10 @@ Elpy依赖一堆Python库，通过 ~M-x elpy-config RET~ 检查和安装依赖�
 Emacs24下安装iPython7会出现提示符乱码的问题，解决方式：卸载后安装iPython6即可。
 
 Flask下要关闭autopep8的功能，否则遵循pep8风格后会引起循环依赖的问题。
+
+*** IPython Shell交互
+#+BEGIN_SRC 
+C-M-x， 向shell发送函数定义，光标在函数体中也仅向shell发送函数定义
+C-c C-y e， 向shell发送光标所语句
+C-c C-c， 向shell发送当前buffer的所有内容
+#+END_SRC
