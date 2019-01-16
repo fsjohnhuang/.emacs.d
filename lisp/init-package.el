@@ -5,7 +5,8 @@
 ;; 设置插件资源库
 (setq package-archives
       '(("gnu" . "http://elpa.emacs-china.org/gnu/")
-        ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+        ("melpa" . "http://elpa.emacs-china.org/melpa/")
+        ("org" . "http://orgmode.org/elpa/")))
 
 
 ;; 启动时自动刷新和安装插件
@@ -14,6 +15,8 @@
 (defvar my/packages
   '(;; Theme
     material-theme
+    ;; other
+    rainbow-delimiters
     ;; Mini Buffer
     smex
     ;; Snippets
@@ -45,7 +48,9 @@
 (require 'init-python-major-mode)
 (require 'init-window-numbering)
 (require 'init-smex)
+(require 'init-other)
 (require 'init-yasnippet)
+(require 'init-hugo)
 
 
 (provide 'init-package)

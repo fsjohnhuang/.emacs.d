@@ -23,9 +23,12 @@
 (global-font-lock-mode t) ;; 语法高亮
 (global-hl-line-mode t) ;; 当前行高亮
 
-;; 括号、双引号自动匹配/补全
+;; 括号/双引号/尖括号自动匹配/补全
 (show-paren-mode t)
-(electric-pair-mode t)
+(setq show-paren-style 'expression) ;; 高亮括号/双引号/尖括号匹配的整个表达式，不仅是括号/双引号/尖括号本身
+(electric-pair-mode t) ;; 括号/双引号/尖括号自动补全
+(electric-layout-mode t) ;; 当识别行分隔符时，光标自动换到下一行
+(which-func-mode t) ;; 光标移动到函数时，在mode-line中显示函数名称
 
 ;; 设置tab键
 (setq-default indent-tabs-mode nil)

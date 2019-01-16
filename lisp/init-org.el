@@ -18,9 +18,8 @@
 ;; 全局任务文件清单
 (setq org-agenda-files (list "~/todo/"))
 
-;; 自动换行
 (add-hook 'org-mode-hook (lambda ()
-                           (setq truncate-lines nil)
+                           (setq truncate-lines nil)     ;; 自动换行
                            (setq system-time-locale "C") ;; 时间戳采用英文
                            (setq org-startup-indented t)
                            (setq org-src-tab-acts-natively t)
