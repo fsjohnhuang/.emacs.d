@@ -1,3 +1,5 @@
+;; SMEX CUSTOMIZATION
+;; ----------------------
 
 (global-set-key (kbd "M-x") 'smex)
 ;;(global-set-key (kbd "M-x") 'smex-major-mode-commands)
@@ -64,4 +66,5 @@
     ;; ...else, run the original ido-set-matches-1
     ad-do-it))
 
-(provide 'init-smex)
+(provide 'smex-init)
+
