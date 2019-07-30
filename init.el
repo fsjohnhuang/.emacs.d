@@ -7,7 +7,7 @@
 (setq package-archives
       '(("gnu" . "http://elpa.emacs-china.org/gnu/")
         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-        ("org" . "http://orgmode.org/elpa/"))) 
+        ("org" . "http://orgmode.org/elpa/")))
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -33,6 +33,8 @@
     flycheck
     flycheck-color-mode-line
     flycheck-pos-tip
+    ;; snippets
+    yasnippet-snippets
     ;; Highlight
     rainbow-delimiters))
 
@@ -83,13 +85,18 @@
 (add-hook 'prog-mode-hook 'subword-mode) ;; regonize camlCase as two words, caml and Case.
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 ;; syntax checker for all. offical: https://www.flycheck.org/en/latest/index.html
-(add-hook 'after-init-hook #'global-flycheck-mode) 
+(add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-color-mode-line)
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
 ;; effect GUI Emacs only
 (with-eval-after-load 'flycheck
-    (flycheck-pos-tip-mode))
+  (flycheck-pos-tip-mode))
+;; yet anther snippet
+(require 'yasnippet)
+(add-to-list 'yas-snippet-dirs
+             "~/.emacs.d/snipptes") ;; personal snippets place here. Run M-x yas-new-snippet to create a new snippet template.
+(yas-global-mode 1)
 
 (require 'python-init)
 (require 'markdown-init)
