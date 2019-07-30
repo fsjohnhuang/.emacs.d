@@ -17,7 +17,7 @@ Custom configurations are sorted by following modes:
 
 ## Quickstart
 
-1. Run `rm $HOME/.emacs.d -rf && git clone git@github.com:fsjohnhuang/.emacs.d.git`.
+1. Run `cd $HOME && rm .emacs.d -rf && git clone git@github.com:fsjohnhuang/.emacs.d.git`.
 2. Install dependencies according to modes you want.
 
 ## Org
