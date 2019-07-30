@@ -9,7 +9,7 @@ GNU Emacs 24.5.1
 Custom configurations are sorted by following modes:
 * Python
 * Org
-* Markdow
+* Markdown
 * Web
 * JavaScript
 * JSON
@@ -47,6 +47,6 @@ Elpy offical: https://elpy.readthedocs.io/en/latest/index.html
 
 ### QA
 
-1. If you have troble seeing error codes in IPython 7 with Emacs 24, try to uninstall IPython 7 then install IPython 6 instead.
+1. If you have trouble seeing error codes in IPython 7 with Emacs 24, try to uninstall IPython 7 then install IPython 6 instead.
 2. If you build a web application by Flask, suggest to disable autopep8 style formatter which would trigger import sequence problem in Flask.
 3. If auto complete is not available, run `<M-x> elpy-config` to check the Jedi have been installed or not, if not install yet, do it by `pip install jedi`.
