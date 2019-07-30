@@ -7,8 +7,7 @@
 (setq package-archives
       '(("gnu" . "http://elpa.emacs-china.org/gnu/")
         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-        ;; ("org" . "http://orgmode.org/elpa/")
-        )) 
+        ("org" . "http://orgmode.org/elpa/"))) 
 
 (package-initialize)
 (when (not package-archive-contents)
@@ -19,7 +18,6 @@
     material-theme
     ;; Python
     elpy
-    flycheck
     py-isort
     py-autopep8
     ;; Web
@@ -29,9 +27,12 @@
     web-mode
     ;; Text
     markdown-mode
-    org
     ;; Mini buffer
     smex
+    ;; syntax checker
+    flycheck
+    flycheck-color-mode-line
+    flycheck-pos-tip
     ;; Highlight
     rainbow-delimiters))
 
@@ -67,12 +68,33 @@
 (electric-layout-mode t)
 (which-func-mode t) ;; show function name in mode-line on which cursor is
 (require 'window-numbering-init)
+;; setting for encoding
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(prefer-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
+
+(display-time) ;; display time in mode-line
+
 
 ;; Developing CUSTOMIZATION
+(add-hook 'before-save-hook 'delete-trailing-whitespace) ;; strip trailing whitespace before save
+(add-hook 'prog-mode-hook 'flyspell-prog-mode)
+(add-hook 'prog-mode-hook 'subword-mode) ;; regonize camlCase as two words, caml and Case.
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+;; syntax checker for all. offical: https://www.flycheck.org/en/latest/index.html
+(add-hook 'after-init-hook #'global-flycheck-mode) 
+(require 'flycheck-color-mode-line)
+(eval-after-load "flycheck"
+  '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+;; effect GUI Emacs only
+(with-eval-after-load 'flycheck
+    (flycheck-pos-tip-mode))
+
 (require 'python-init)
 (require 'markdown-init)
 (require 'yaml-init)
 (require 'smex-init)
 (require 'org-init)
-
+(require 'web-init)
+(require 'react-init)
