@@ -59,7 +59,7 @@ sudo apt install tidy
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
 # babel-eslint: to enable ES6 and jsx parsing for eslint.
 # prettier: prettify the code style automatically before save files.
-npm install eslint babel-eslint prettier
+npm install eslint babel-eslint prettier -g
 ```
 
 #### Configuration
