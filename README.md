@@ -30,18 +30,18 @@ Custom configurations are sorted by following modes:
 ## FrontEnd
 Features:
 1. HTML support
-1.1. Syntax check
-1.2. Auto completion
-1.3. Emmet support
+   1. Syntax check
+   2. Auto completion
+   3. Emmet support
 2. CSS syntax check
 3. SCSS syntax check
 4. LESS syntax check(Todo)
 6. JavaScript/ES6 support
-6.1. Syntax check
-6.2. Auto completion(Todo)
+   1. Syntax check
+   2. Auto completion(Todo)
 7. TypeScript support(Todo)
-7.1. Syntax check
-7.2. Auto completion
+   1. Syntax check
+   2. Auto completion
 
 ### HTML
 #### Dependencies
@@ -58,6 +58,7 @@ sudo apt install tidy
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
 # babel-eslint: to enable ES6 and jsx parsing for eslint.
 npm install eslint babel-eslint
+```
 
 #### Configuration
 1. Initialize .eslintrc in your project.
