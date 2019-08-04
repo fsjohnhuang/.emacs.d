@@ -1,8 +1,11 @@
-;; REACT CUSTOMIZATION
-;; github: https://github.com/rudolfolah/emacs-flow-jsx
-;; It is a *major* mode that is a replacement for js2-mode and js-mode.
-;; ---------------------
+;;; react-init --- Summary
+;;; REACT CONFIGURATION
+;;; github: https://github.com/rudolfolah/emacs-flow-jsx
+;;; It is a *major* mode that is a replacement for js2-mode and js-mode.
+;;; Commentary:
 
+
+;;; Code:
 ;; create the derived mode react-mode from web-mode.
 (define-derived-mode react-mode
   web-mode
@@ -27,5 +30,10 @@
   (setq web-mode-code-indent-offset 4))
 (add-hook 'react-mode-hook  'my-react-mode-hook)
 
+;; auto complete
+;;(set-variable 'ycmd-server-command '("/home/john/.pyenv/versions/3.5.5/bin/python" (expand-file-name "~/ycmd/ycmd")))
+;;(company-ycmd-setup)
+
 
 (provide 'react-init)
+;;; react-init.el ends here

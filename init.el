@@ -17,7 +17,7 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(defvar myPackages
+(defvar init/Packages
   '(better-defaults
     material-theme
     ;; Python
@@ -30,7 +30,8 @@
     yaml-mode
     web-mode
     scss-mode
-    sgml-mode
+    sgml-mode ;; xml major mode
+    emmet-mode ;; emmet minor mode
     ;; Auto completion
     company
     ycmd
@@ -39,15 +40,16 @@
     company-web
     ;; Text
     markdown-mode
-    emmet-mode
-    ;; Mini buffer
-    smex
-    ;; syntax checker
+    ;; Syntax checker
     flycheck
     flycheck-color-mode-line
     flycheck-pos-tip
-    ;; snippets
+    ;; Snippets
     yasnippet-snippets
+    ;; Prettier
+    prettier-js ;; https://github.com/prettier/prettier-emacs
+    ;; Mini buffer
+    smex
     ;; Highlight
     rainbow-delimiters))
 
@@ -55,7 +57,7 @@
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
 	    (package-install package)))
-      myPackages)
+      init/Packages)
 
 
 ;; BASIC CUSTOMIZATION
@@ -135,8 +137,6 @@
   (define-key company-active-map (kbd "M-p") nil))
 (add-hook 'after-init-hook 'global-company-mode)
 
-;;(set-variable 'ycmd-server-command '("/home/john/.pyenv/versions/3.5.5/bin/python" (expand-file-name "~/ycmd/ycmd")))
-;;(company-ycmd-setup)
 
 (require 'python-init)
 (require 'markdown-init)
@@ -149,4 +149,5 @@
 (require 'css-init)
 (require 'scss-init)
 (require 'emmet-init)
+(require 'javascript-init)
 ;;; init.el ends here

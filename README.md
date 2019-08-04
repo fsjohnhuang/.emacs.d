@@ -38,7 +38,8 @@ Features:
 4. LESS syntax check(Todo)
 6. JavaScript/ES6 support
    1. Syntax check
-   2. Auto completion(Todo)
+   2. Auto prettify(WIP: unify eslint and prettier)
+   3. Auto completion(Todo)
 7. TypeScript support(Todo)
    1. Syntax check
    2. Auto completion
@@ -57,7 +58,8 @@ sudo apt install tidy
 ``` bash
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
 # babel-eslint: to enable ES6 and jsx parsing for eslint.
-npm install eslint babel-eslint
+# prettier: prettify the code style automatically before save files.
+npm install eslint babel-eslint prettier
 ```
 
 #### Configuration
@@ -87,11 +89,16 @@ emacsFeatures:
   - templateStrings: true
 ```
 
-### CSS
+#### Usage
+1. Fold all function definitions `C-c C-f`
+2. Unfold the function under cursor `C-c C-o`
+3. Goto function definition `M-.`
+
+### CSS/LESS/SCSS
 #### Dependencies
 
 ``` bash
-# install backend for flycheck for CSS
+# install backend for flycheck for CSS/LESS/SCSS
 npm install stylelint stylelint-config-standard -g
 ```
 
