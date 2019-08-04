@@ -1,5 +1,9 @@
-;; INSTALL PACKAGES
-;; ------------------------
+;;; init --- Summary
+;;; INSTALL PACKAGES
+;;; Commentary:
+
+
+;;; Code:
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 (require 'package)
@@ -25,8 +29,17 @@
     json-mode
     yaml-mode
     web-mode
+    scss-mode
+    sgml-mode
+    ;; Auto completion
+    company
+    ycmd
+    company-ycmd
+    ;; for HTML
+    company-web
     ;; Text
     markdown-mode
+    emmet-mode
     ;; Mini buffer
     smex
     ;; syntax checker
@@ -79,24 +92,44 @@
 (display-time) ;; display time in mode-line
 
 
-;; Developing CUSTOMIZATION
+;; DEVELOPING CUSTOMIZATION
+;; -------------------------
+
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; strip trailing whitespace before save
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
 (add-hook 'prog-mode-hook 'subword-mode) ;; regonize camlCase as two words, caml and Case.
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-;; syntax checker for all. offical: https://www.flycheck.org/en/latest/index.html
+
+;; use flycheck as syntax checker for all mode. offical: https://www.flycheck.org/en/latest/index.html
 (add-hook 'after-init-hook #'global-flycheck-mode)
 (require 'flycheck-color-mode-line)
+;; make the mode line colorful by status of flycheck.
 (eval-after-load "flycheck"
   '(add-hook 'flycheck-mode-hook 'flycheck-color-mode-line-mode))
+;; disable jshint since we prefer eslint checking
+(setq-default flycheck-disabled-checkers
+              (append flycheck-disabled-checkers
+                      '(javascript-jshint)))
 ;; effect GUI Emacs only
 (with-eval-after-load 'flycheck
   (flycheck-pos-tip-mode))
+
 ;; yet anther snippet
 (require 'yasnippet)
 (add-to-list 'yas-snippet-dirs
              "~/.emacs.d/snipptes") ;; personal snippets place here. Run M-x yas-new-snippet to create a new snippet template.
 (yas-global-mode 1)
+
+;; company
+(set-variable 'ycmd-server-command '("/home/john/.pyenv/versions/3.5.5/bin/python" (expand-file-name "~/ycmd/ycmd")))
+(setq company-tooltip-limit 10)
+(setq company-idle-delay 0.5)
+(setq company-echo-delay 0)
+(setq company-begin-commands '(self-insert-command))
+(setq company-require-match nil)
+(company-ycmd-setup)
+(add-hook 'after-init-hook 'global-company-mode)
+
 
 (require 'python-init)
 (require 'markdown-init)
@@ -105,3 +138,8 @@
 (require 'org-init)
 (require 'web-init)
 (require 'react-init)
+(require 'html-init)
+(require 'css-init)
+(require 'scss-init)
+(require 'emmet-init)
+;;; init.el ends here

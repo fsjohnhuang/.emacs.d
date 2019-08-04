@@ -1,5 +1,5 @@
 # fsjohnhuang/.emacs.d
-My personal emacs configuration.
+My personal emacs configuration on Ubuntu.
 
 ``` bash
 $ emacs --version
@@ -26,7 +26,72 @@ Custom configurations are sorted by following modes:
 ``` elisp
 <M-x> package-install <RET> org <RET>
 ```
-  
+
+## FrontEnd
+Features:
+1. HTML syntax check
+2. CSS syntax check
+3. SCSS syntax check
+4. LESS syntax check(Todo)
+5. Emmet support
+6. JavaScript/ES6 support
+6.1. Syntax check
+6.2. Auto completion(Todo)
+7. TypeScript support(Todo)
+7.1. Syntax check
+7.2. Auto completion
+
+### HTML
+#### Dependencies
+
+``` bash
+# install backend for flycheck for HTML
+sudo apt install tidy
+```
+
+### JavaScript/ES6
+#### Dependencies
+
+``` bash
+# eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
+# babel-eslint: to enable ES6 and jsx parsing for eslint.
+npm install eslint babel-eslint
+
+#### Configuration
+1. Initialize .eslintrc in your project.
+``` bash
+eslint --init
+```
+2. Set `parser` to `babel-eslint` in .eslintrc. Template like below
+
+``` yaml
+parser: babel-eslint
+plugins: []
+env:
+  - browser: true
+  - es6: true
+  - node: true
+emacsFeatures:
+  - arrowFunctions: true
+  - blockBindings: true
+  - classes: true
+  - defaultParams: true
+  - destructing: true
+  - forOf: true
+  - generators: true
+  - modules: true
+  - spread: true
+  - templateStrings: true
+```
+
+### CSS
+#### Dependencies
+
+``` bash
+# install backend for flycheck for CSS
+npm install stylelint stylelint-config-standard -g
+```
+
 ## Python
 ### Dependencies
 
