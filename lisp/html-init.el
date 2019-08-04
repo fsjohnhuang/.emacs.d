@@ -19,7 +19,7 @@
   (flycheck-select-checker 'html-tidy)
   ;; auto complete
   (add-to-list (make-local-variable 'company-backends)
-               '(company-web-html)))
+               '(company-web-html company-files company-css company-capf company-keywords)))
 
 
 (add-hook 'web-mode-hook

@@ -121,15 +121,22 @@
 (yas-global-mode 1)
 
 ;; company
-(set-variable 'ycmd-server-command '("/home/john/.pyenv/versions/3.5.5/bin/python" (expand-file-name "~/ycmd/ycmd")))
 (setq company-tooltip-limit 10)
-(setq company-idle-delay 0.5)
+(setq company-idle-delay 0.3) ;; wait 0.3 second before pop up tool tips
 (setq company-echo-delay 0)
+(setq company-minimum-prefix-length 2) ;; pop up tool tips after type 2 chars at least
 (setq company-begin-commands '(self-insert-command))
 (setq company-require-match nil)
-(company-ycmd-setup)
+;; replace C-n to M-n and C-p to M-p
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "\C-n") #'company-select-next)
+  (define-key company-active-map (kbd "\C-p") #'company-select-previous)
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil))
 (add-hook 'after-init-hook 'global-company-mode)
 
+;;(set-variable 'ycmd-server-command '("/home/john/.pyenv/versions/3.5.5/bin/python" (expand-file-name "~/ycmd/ycmd")))
+;;(company-ycmd-setup)
 
 (require 'python-init)
 (require 'markdown-init)

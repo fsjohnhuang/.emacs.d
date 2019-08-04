@@ -29,11 +29,13 @@ Custom configurations are sorted by following modes:
 
 ## FrontEnd
 Features:
-1. HTML syntax check
+1. HTML support
+1.1. Syntax check
+1.2. Auto completion
+1.3. Emmet support
 2. CSS syntax check
 3. SCSS syntax check
 4. LESS syntax check(Todo)
-5. Emmet support
 6. JavaScript/ES6 support
 6.1. Syntax check
 6.2. Auto completion(Todo)
