@@ -25,19 +25,17 @@
     py-isort
     py-autopep8
     ;; Web
-    js2-mode
     json-mode
     yaml-mode
     web-mode
     scss-mode
     sgml-mode ;; xml major mode
     emmet-mode ;; emmet minor mode
+    typescript-mode
     ;; Auto completion
     company
-    ycmd
-    company-ycmd
-    ;; for HTML
-    company-web
+    tide ;; for JavaScript and TypeScript
+    company-web ;; for HTML
     ;; Text
     markdown-mode
     ;; Syntax checker
@@ -62,7 +60,12 @@
 
 ;; BASIC CUSTOMIZATION
 ;; ----------------------
-
+(setq user-full-name "John Huang")
+(setq user-email-address "fsjohnhuang@hotmail.com")
+(tool-bar-mode nil)
+(menu-bar-mode nil)
+(scroll-bar-mode nil)
+(set-scroll-bar-mode nil)
 (setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'material t) ;; load material theme
 (column-number-mode t) ;; show column number
@@ -127,6 +130,7 @@
 (setq company-idle-delay 0.3) ;; wait 0.3 second before pop up tool tips
 (setq company-echo-delay 0)
 (setq company-minimum-prefix-length 2) ;; pop up tool tips after type 2 chars at least
+(setq company-tooltip-align-annotations t) ;; aligns annotation to the right hand side
 (setq company-begin-commands '(self-insert-command))
 (setq company-require-match nil)
 ;; replace C-n to M-n and C-p to M-p

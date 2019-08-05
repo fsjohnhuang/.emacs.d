@@ -36,13 +36,14 @@ Features:
 2. CSS syntax check
 3. SCSS syntax check
 4. LESS syntax check(Todo)
-6. JavaScript/ES6 support
+6. JavaScript/ES6/JSX support
    1. Syntax check
-   2. Auto prettify(WIP: unify eslint and prettier)
-   3. Auto completion(Todo)
-7. TypeScript support(Todo)
+   2. Auto prettify
+   3. Auto completion
+7. TypeScript/TSX support
    1. Syntax check
-   2. Auto completion
+   2. Auto prettify(Todo)
+   3. Auto completion
 
 ### HTML
 #### Dependencies
@@ -52,14 +53,19 @@ Features:
 sudo apt install tidy
 ```
 
-### JavaScript/ES6
+### JavaScript/ES6/JSX
 #### Dependencies
 
 ``` bash
+# typescript: install typescript and tsserver for JavaScript and TypeScript.
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
 # babel-eslint: to enable ES6 and jsx parsing for eslint.
 # prettier: prettify the code style automatically before save files.
-npm install eslint babel-eslint prettier -g
+# eslint-plugin-prettier: add prettier as rules for eslint.
+# eslint-config-prettier: config prettier in eslint.
+npm install typescript eslint babel-eslint prettier eslint-plugin-prettier eslint-config-prettier -g
+# avoid tsserver raising error that can not resolve symbol $ in JQuery.
+npm install jquery --save
 ```
 
 #### Configuration
@@ -67,11 +73,13 @@ npm install eslint babel-eslint prettier -g
 ``` bash
 eslint --init
 ```
-2. Set `parser` to `babel-eslint` in .eslintrc. Template like below
+2. Set `parser` to `babel-eslint` in .eslintrc. And use `prettier` as rule. Template like below
 
 ``` yaml
 parser: babel-eslint
 plugins: []
+extends:
+  - prettier
 env:
   - browser: true
   - es6: true
