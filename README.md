@@ -57,13 +57,20 @@ sudo apt install tidy
 #### Dependencies
 
 ``` bash
-# typescript: install typescript and tsserver for JavaScript and TypeScript.
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
 # babel-eslint: to enable ES6 and jsx parsing for eslint.
 # prettier: prettify the code style automatically before save files.
+npm install eslint babel-eslint prettier -g
+
 # eslint-plugin-prettier: add prettier as rules for eslint.
 # eslint-config-prettier: config prettier in eslint.
-npm install typescript eslint babel-eslint prettier eslint-plugin-prettier eslint-config-prettier -g
+# eslint-plugin-import: add import plugin for eslint.
+# eslint-plugin-react: add react plugin for eslint.
+# eslint-plugin-jsx-a11y: add jsx a11y plugin for eslint.
+npm install eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-plugin-jsx-a11y --save-dev
+
+# typescript: install typescript and tsserver for JavaScript and TypeScript.
+npm install typescript
 # avoid tsserver raising error that can not resolve symbol $ in JQuery.
 npm install jquery --save
 ```

@@ -102,6 +102,13 @@
 
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; strip trailing whitespace before save
 (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+;; fold or unfold
+;; C-c @ C-M-s show all
+;; C-c @ C-M-h hide all
+;; C-c @ C-s show block
+;; C-c @ C-h hide block
+;; C-c @ C-c toggle hide/show
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 (add-hook 'prog-mode-hook 'subword-mode) ;; regonize camlCase as two words, caml and Case.
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
