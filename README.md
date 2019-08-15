@@ -50,7 +50,7 @@ Features:
 
 ``` bash
 # install backend for flycheck for HTML
-sudo apt install tidy
+sudo apt install tidy -y
 ```
 
 ### JavaScript/ES6/JSX
@@ -58,19 +58,19 @@ sudo apt install tidy
 
 ``` bash
 # eslint: pluggable linter for JavaScript and jsx, requires Node.js>=8.10 and npm > 3.
-# babel-eslint: to enable ES6 and jsx parsing for eslint.
 # prettier: prettify the code style automatically before save files.
-npm install eslint babel-eslint prettier -g
+npm install eslint prettier -g
 
+# babel-eslint: to enable ES6 and jsx parsing for eslint.
 # eslint-plugin-prettier: add prettier as rules for eslint.
 # eslint-config-prettier: config prettier in eslint.
 # eslint-plugin-import: add import plugin for eslint.
 # eslint-plugin-react: add react plugin for eslint.
 # eslint-plugin-jsx-a11y: add jsx a11y plugin for eslint.
-npm install eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-plugin-jsx-a11y --save-dev
+npm install babel-eslint eslint-plugin-prettier eslint-config-prettier eslint-plugin-react eslint-plugin-jsx-a11y eslint-plugin-import --save-dev
 
 # typescript: install typescript and tsserver for JavaScript and TypeScript.
-npm install typescript
+npm install typescript --save-dev
 # avoid tsserver raising error that can not resolve symbol $ in JQuery.
 npm install jquery --save
 ```
@@ -84,9 +84,11 @@ eslint --init
 
 ``` yaml
 parser: babel-eslint
-plugins: []
-extends:
+plugins:
+  - react
   - prettier
+rules:
+  "prettier/prettier": error
 env:
   - browser: true
   - es6: true
