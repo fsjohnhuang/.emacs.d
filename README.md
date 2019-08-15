@@ -105,6 +105,20 @@ emacsFeatures:
   - spread: true
   - templateStrings: true
 ```
+3. Set `jsconfig.json` for tsserver.
+
+``` json
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "allowSyntheticDefaultImports": true,
+    "noEmit": true,
+    "checkJs": true,
+    "jsx": "react",
+    "lib": [ "dom", "es2017" ]
+  }
+}
+```
 
 #### Usage
 1. Fold all function definitions `C-c C-f`
