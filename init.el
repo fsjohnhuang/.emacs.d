@@ -1,3 +1,4 @@
+
 ;;; init --- Summary
 ;;; INSTALL PACKAGES
 ;;; Commentary:
@@ -49,7 +50,10 @@
     ;; Mini buffer
     smex
     ;; Highlight
-    rainbow-delimiters))
+    rainbow-delimiters
+    ;; Others
+    neotree ;; https://github.com/jaypei/emacs-neotree
+    ))
 
 
 (mapc #'(lambda (package)
@@ -62,10 +66,10 @@
 ;; ----------------------
 (setq user-full-name "John Huang")
 (setq user-email-address "fsjohnhuang@hotmail.com")
-(tool-bar-mode nil)
-(menu-bar-mode nil)
-(scroll-bar-mode nil)
-(set-scroll-bar-mode nil)
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(set-scroll-bar-mode 0)
 (setq inhibit-startup-message t) ;; hide the startup message
 (load-theme 'material t) ;; load material theme
 (column-number-mode t) ;; show column number
@@ -148,6 +152,9 @@
   (define-key company-active-map (kbd "M-p") nil))
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; Neotree
+(global-set-key (kbd "C-x 8") 'neotree-toggle)
+
 
 (require 'python-init)
 (require 'markdown-init)
@@ -162,17 +169,3 @@
 (require 'emmet-init)
 (require 'javascript-init)
 ;;; init.el ends here
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (rainbow-delimiters smex prettier-js yasnippet-snippets flycheck-pos-tip flycheck-color-mode-line markdown-mode company-web tide typescript-mode emmet-mode scss-mode web-mode yaml-mode json-mode py-autopep8 py-isort elpy material-theme better-defaults))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
