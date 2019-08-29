@@ -53,6 +53,7 @@
     rainbow-delimiters
     ;; Others
     neotree ;; https://github.com/jaypei/emacs-neotree
+    helm
     ))
 
 
@@ -155,6 +156,10 @@
 ;; Neotree
 (global-set-key (kbd "C-x 8") 'neotree-toggle)
 
+;; Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
 
 (require 'python-init)
 (require 'markdown-init)

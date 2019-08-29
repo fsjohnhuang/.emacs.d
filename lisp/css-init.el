@@ -11,7 +11,9 @@
             ;; basic settings
             (setq css-indent-offset 2)
             ;; syntax check settings
-            (setq flycheck-stylelintrc "~/.stylelintrc")))
+            ;; set .stylelintrc under project root is as configuration file.
+            (setq flycheck-stylelintrc "./.stylelintrc")
+            ))
 
 
 (provide 'css-init)

@@ -130,7 +130,22 @@ emacsFeatures:
 
 ``` bash
 # install backend for flycheck for CSS/LESS/SCSS
-npm install stylelint stylelint-config-standard -g
+npm install stylelint -g
+
+# install extends of stylelint
+npm install stylelint-config-standard -D
+```
+
+#### Configuration
+
+``` bash
+cd $PROJECT
+
+cat << END > .stylelintrc
+---
+
+extends: stylelint-config-standard
+END
 ```
 
 ## Python
