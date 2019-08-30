@@ -1,4 +1,3 @@
-
 ;;; init --- Summary
 ;;; INSTALL PACKAGES
 ;;; Commentary:
@@ -54,6 +53,7 @@
     ;; Others
     neotree ;; https://github.com/jaypei/emacs-neotree
     helm
+    evil
     ))
 
 
@@ -160,6 +160,12 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-x b") 'helm-buffers-list)
+
+;; Evil(supports more vi functionalities than vimper-mode)
+;; C-z, switch between Vi mode and Emacs mode.
+(evil-mode 1)
+;; (setq evil-default-state 'emacs) ;; set Emacs mode as default mode
+
 
 (require 'python-init)
 (require 'markdown-init)
